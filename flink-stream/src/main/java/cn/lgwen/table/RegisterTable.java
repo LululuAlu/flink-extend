@@ -34,18 +34,16 @@ public class RegisterTable {
 
             }
         });
-        // 将流转换成一张表
-        Table userTable = fsTableEnv.fromDataStream(dataStream, "id, name, birth, gender, UserActionTime.proctime");
+        // 将流转换成一张表 注册
+        fsTableEnv.registerDataStream("table1", dataStream, "id, name, birth, gender, UserActionTime.proctime");
         //Table result = fsTableEnv.sqlQuery("select * from " + userTable.toString() + " where id > 2");
+        // fsTableEnv.registerDataStream("user", dataStream);
 
         Table count = fsTableEnv.sqlQuery("SELECT COUNT(*) as pvcount, TUMBLE_END(UserActionTime, INTERVAL '5' SECOND) as processTime, gender " +
-                "FROM " + userTable + " GROUP BY TUMBLE(UserActionTime, INTERVAL '5' SECOND), gender");
+                "FROM table1 GROUP BY TUMBLE(UserActionTime, INTERVAL '5' SECOND), gender");
         DataStream<AggResult> userDataStream = fsTableEnv.toAppendStream(count, AggResult.class);
 
         userDataStream.print();
-
-
-
 
         fsTableEnv.execute("my job");
     }

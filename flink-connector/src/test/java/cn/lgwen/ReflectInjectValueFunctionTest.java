@@ -1,6 +1,5 @@
 package cn.lgwen;
 
-import cn.lgwen.User;
 import cn.lgwen.join.InjectValueByResultKeyJoinFunction;
 import org.junit.Assert;
 import org.junit.Test;

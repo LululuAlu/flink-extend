@@ -1,6 +1,5 @@
 package cn.lgwen.join.hbase;
 
-import com.sun.istack.internal.NotNull;
 import lombok.NoArgsConstructor;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
@@ -26,7 +25,7 @@ public class HBaseSink<T extends Row> extends RichSinkFunction<T> {
     private String familyName;
 
     public HBaseSink(
-            @NotNull String tableName, @NotNull String familyName) {
+             String tableName,  String familyName) {
         this.tableName = tableName;
         this.familyName = familyName;
     }

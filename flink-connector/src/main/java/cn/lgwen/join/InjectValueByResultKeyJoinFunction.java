@@ -187,6 +187,8 @@ public class InjectValueByResultKeyJoinFunction<IN, OUT, TYPE> implements BiFunc
             } if (value instanceof Date) {
                 return value;
             }
+        } else if (String.class == returnType) {
+            return String.valueOf(value);
         }
         return value;
     }

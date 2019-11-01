@@ -51,13 +51,11 @@ public class ReflectUtil {
         if (fieldName.length() > 2) {
             String second = fieldName.substring(1, 2);
             if (second.equals(second.toUpperCase())) {
-                return new StringBuffer(methodPerfix).append(fieldName).toString();
+                return methodPerfix + fieldName;
             }
         }
         /* Common situation */
-        fieldName = new StringBuffer(methodPerfix).append(fieldName.substring(0, 1).toUpperCase())
-                .append(fieldName.substring(1)).toString();
-
+        fieldName = methodPerfix + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
         return fieldName;
     }
 }

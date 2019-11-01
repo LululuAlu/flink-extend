@@ -9,6 +9,7 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.*;
 import java.util.function.BiFunction;
+import java.util.function.Supplier;
 
 /**
  * 2019/10/18
@@ -19,17 +20,29 @@ public class AsyncJDBCJoinFunction<IN> extends AbstractAsyncJoinFunction<IN, IN,
 
     private transient DataSource dataSource;
 
+    // 初始化 dataSource
+    private Supplier<DataSource> dataSourceSupplier;
 
+    /**
+     *
+     * @param SQL
+     * @param matchField POJD param field
+     * @param joinFunction
+     * @param dataSourceSupplier
+     */
     public AsyncJDBCJoinFunction(String SQL,
                                  List<String> matchField,
-                                 BiFunction<IN, List<Map<String, Object>>, IN> joinFunction) {
+                                 BiFunction<IN, List<Map<String, Object>>, IN> joinFunction,
+                                 Supplier<DataSource> dataSourceSupplier) {
         super(SQL, matchField, joinFunction);
+        this.dataSourceSupplier = dataSourceSupplier;
     }
 
     @Override
     public void open(Configuration parameters) throws Exception {
         super.open(parameters);
-        // TODO init dataSource
+        dataSource = dataSourceSupplier.get();
+
     }
 
     @Override
@@ -57,7 +70,7 @@ public class AsyncJDBCJoinFunction<IN> extends AbstractAsyncJoinFunction<IN, IN,
             Map<String, Object> resultMap = new HashMap<>();
             for(int index = 1; index <= count; index++){
                 rs.getObject(index);
-                resultMap.put(rsmd.getColumnName(index), rs.getObject(index));
+                resultMap.put(rsmd.getColumnLabel(index), rs.getObject(index));
             }
             resultList.add(resultMap);
         }

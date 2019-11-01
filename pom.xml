@@ -15,17 +15,21 @@
         <module>flink-sql</module>
     </modules>
     <properties>
-        <flink-version>1.9.0</flink-version>
+        <flink-version>1.9.1</flink-version>
         <jackson-version>2.10.0</jackson-version>
         <es.version>6.5.1</es.version>
         <hbase.version>1.4.10</hbase.version>
     </properties>
     <repositories>
         <repository>
-            <id>nexus-aliyun</id>
-            <name>Nexus aliyun</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <id>dbapp-out-public</id>
+            <url>http://10.20.128.166:8081/nexus/content/groups/public/</url>
         </repository>
+        <!--<repository>-->
+            <!--<id>nexus-aliyun</id>-->
+            <!--<name>Nexus aliyun</name>-->
+            <!--<url>http://maven.aliyun.com/nexus/content/groups/public</url>-->
+        <!--</repository>-->
     </repositories>
 
     <dependencies>
@@ -55,16 +59,17 @@
         </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-streaming-scala_2.11</artifactId>
+            <artifactId>flink-table-common</artifactId>
             <version>${flink-version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-table-common</artifactId>
+            <artifactId>flink-streaming-scala_2.11</artifactId>
             <version>${flink-version}</version>
             <scope>compile</scope>
         </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

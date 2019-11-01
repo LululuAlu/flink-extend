@@ -10,6 +10,9 @@ import java.util.function.BiFunction;
  * 2019/10/17
  * aven.wu
  * danxieai258@163.com
+ * IN 输入类型
+ * OUT 输出类型
+ * TYPE 查询数据源返回的数据类型，一般Object
  */
 public abstract class AbstractAsyncJoinFunction<IN, OUT, TYPE> extends RichAsyncFunction<IN, OUT> {
 
