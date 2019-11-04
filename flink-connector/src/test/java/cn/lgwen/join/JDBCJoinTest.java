@@ -1,15 +1,11 @@
 package cn.lgwen.join;
 
-import cn.lgwen.User;
 import cn.lgwen.jdbc.SimpleDateSource;
 import cn.lgwen.join.JDBC.AsyncJDBCJoinFunction;
-import cn.lgwen.join.elasticsearch.AsyncElasticSearch6JoinFunction;
 import org.apache.flink.streaming.api.datastream.AsyncDataStream;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
-import org.apache.flink.streaming.api.datastream.DataStreamUtils;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.http.HttpHost;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,8 +13,6 @@ import javax.sql.DataSource;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 

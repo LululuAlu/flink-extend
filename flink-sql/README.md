@@ -14,3 +14,11 @@ select `office info`.post, `office info`.salary, `person info`.age, `person info
     4. 只支持单表查询
 
 * ElasticSearch
+``Elastic6SearchBuilder``
+```roomsql
+select city, collectId, description from `dwd_event.2019-10-08` where  `city.keyword` = ? AND collectId = ?
+```
+使用``"`city.keyword`"``表示ES filed 的keyword类型。
+    1. 支持_id查询
+    2. 支持任何字段查询
+    3. 支持AND，OR多条件查询

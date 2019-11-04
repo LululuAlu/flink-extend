@@ -28,7 +28,7 @@ public class AsyncJDBCJoinFunction<IN> extends AbstractAsyncJoinFunction<IN, IN,
      * @param SQL
      * @param matchField POJD param field
      * @param joinFunction
-     * @param dataSourceSupplier
+     * @param dataSourceSupplier dataSourceSupplier must implement Serializable
      */
     public AsyncJDBCJoinFunction(String SQL,
                                  List<String> matchField,

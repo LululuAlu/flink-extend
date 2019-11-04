@@ -18,8 +18,15 @@ public abstract class AbstractAsyncJoinFunction<IN, OUT, TYPE> extends RichAsync
 
     protected final String SQL;
 
+    /**
+     * 从被join数据的 field取值，按照顺序填充
+     * List 必须有序
+     */
     protected List<String> matchField;
 
+    /**
+     * join function
+     */
     protected BiFunction<IN, List<Map<String, TYPE>>, OUT> joinFunction;
 
 

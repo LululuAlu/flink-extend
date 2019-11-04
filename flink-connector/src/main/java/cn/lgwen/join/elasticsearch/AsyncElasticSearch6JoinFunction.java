@@ -28,7 +28,9 @@ public class AsyncElasticSearch6JoinFunction<IN> extends AbstractAsyncJoinFuncti
     private HttpHost[] httpHosts;
 
     private transient Elastic6SearchBuilder searchBuilder;
-
+    /**
+     * ES 文档类型，doc type
+     */
     private String type;
 
 
