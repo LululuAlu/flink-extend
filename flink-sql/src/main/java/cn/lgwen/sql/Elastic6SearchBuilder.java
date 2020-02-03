@@ -210,7 +210,7 @@ public class Elastic6SearchBuilder extends AbstractSearchBuilder {
         @Override
         List<Map<String, Object>> query(RestHighLevelClient client, Object... args) throws Exception {
             SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
-            List<String> items = selectItem.stream().map(x -> x.getExpression().toString()).collect(Collectors.toList());
+            List<String> items = selectItem.stream().map(x -> x.getExpression().toString().replaceAll("`", "")).collect(Collectors.toList());
             sourceBuilder.fetchSource(items.toArray(new String[]{}),null);
             sourceBuilder.from(0);
             sourceBuilder.size((int) limit);

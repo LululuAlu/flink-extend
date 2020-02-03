@@ -53,7 +53,7 @@ public class SqlParser {
         if (expression instanceof EqualsTo) {
             // 单个条件equal
             EqualsTo equalsTo = (EqualsTo)expression;
-            String column = ((Column)equalsTo.getLeftExpression()).getColumnName();
+            String column = ((Column)equalsTo.getLeftExpression()).getColumnName().replaceAll("`", "");
             if(column.equals(builder.primaryKey())) {
                 // 匹配主键
                 builder.builderGet(expression);
