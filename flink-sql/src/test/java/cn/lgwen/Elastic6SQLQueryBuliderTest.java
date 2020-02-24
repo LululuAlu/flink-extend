@@ -31,7 +31,7 @@ public class Elastic6SQLQueryBuliderTest {
 
     @Test
     public void getIdForSpecifyValue()throws Exception {
-        String sql = "select discoveryTime, cause, description from batch_dws_vul_info_201909 where _id = '9EC8F9CAB795C3CCE01BDA8E497C81D9'";
+        String sql = "select discoveryTime, `cause`, description from batch_dws_vul_info_201909 where _id = '9EC8F9CAB795C3CCE01BDA8E497C81D9'";
         Elastic6SearchBuilder searchBuilder = new Elastic6SearchBuilder();
         searchBuilder.type("data");
         SqlParser.parserSqlToBuilder(sql, searchBuilder);
@@ -53,7 +53,7 @@ public class Elastic6SQLQueryBuliderTest {
 
     @Test
     public void searchFieldCondition()throws Exception {
-        String sql = "select city, collectId, description from `dwd_event.2019-10-08` where  city = ? ";
+        String sql = "select city, collectId, description from `dwd_event.2019-10-08` where  `city` = ? ";
         Elastic6SearchBuilder searchBuilder = new Elastic6SearchBuilder();
         searchBuilder.type("data");
         SqlParser.parserSqlToBuilder(sql, searchBuilder);
