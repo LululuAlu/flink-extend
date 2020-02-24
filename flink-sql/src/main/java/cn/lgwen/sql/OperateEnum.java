@@ -12,6 +12,7 @@ public class OperateEnum {
     public static final String LESS_THEN_EQUAL = "<=";
     public static final String GREATER_THEN = ">";
     public static final String GREATER_THEN_EQUAL = ">=";
+    public static final String NOT_EQUAL = "<>";
     public static final String LIKE = "like";
 
 }
