@@ -7,7 +7,7 @@
     <groupId>cn.lgwen</groupId>
     <artifactId>flink-extend</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1</version>
     <modules>
         <module>flink-ml</module>
         <module>flink-connector</module>
@@ -50,12 +50,6 @@
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-table-planner_2.11</artifactId>
-                <version>${flink-version}</version>
-                <scope>compile</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.flink</groupId>
-                <artifactId>flink-streaming-scala_2.11</artifactId>
                 <version>${flink-version}</version>
                 <scope>compile</scope>
             </dependency>

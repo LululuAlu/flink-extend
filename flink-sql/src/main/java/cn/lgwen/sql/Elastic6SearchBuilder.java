@@ -151,6 +151,7 @@ public class Elastic6SearchBuilder extends AbstractSearchBuilder {
         protected void setValue(Map<String, Object> returnRs, Map<String, Object> searchRs) {
             for (SelectExpressionItem element : selectItem) {
                 String column = element.getExpression().toString();
+                column = column.replaceAll("`", "");
                 String alias = null;
                 if (element.getAlias() != null) {
                     alias = element.getAlias().getName();
@@ -235,7 +236,7 @@ public class Elastic6SearchBuilder extends AbstractSearchBuilder {
                     Object right = expression.right;
                     if (expression.isPlaceholder()) {
                         Asserts.check(args != null && args.length >= 1, "args number not operates count");
-                        right = args[idx];
+                        right = args[idx++];
                     }
                     if (expression.condition.equals(OR)) {
                         boolQueryBuilder.should(queryBuilder(expression, right));
@@ -246,7 +247,6 @@ public class Elastic6SearchBuilder extends AbstractSearchBuilder {
                             boolQueryBuilder.must(queryBuilder(expression, right));
                         }
                     }
-                    idx++;
                 }
                 sourceBuilder.query(boolQueryBuilder);
             } else {
