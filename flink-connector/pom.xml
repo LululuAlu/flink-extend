@@ -5,7 +5,7 @@
     <parent>
         <artifactId>flink-extend</artifactId>
         <groupId>cn.lgwen</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -52,7 +52,7 @@
         <dependency>
             <groupId>cn.lgwen</groupId>
             <artifactId>flink-sql</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>0.1</version>
         </dependency>
     </dependencies>
 </project>
