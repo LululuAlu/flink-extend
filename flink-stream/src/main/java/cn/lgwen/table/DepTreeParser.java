@@ -49,7 +49,6 @@ public class DepTreeParser {
         include.addAll(all.remove("org.slf4j:slf4j-log4j12"));
         include.addAll(all.remove("com.alibaba:fastjson"));
         include.addAll(all.remove("org.apache.logging.log4j:log4j-core"));
-        include.addAll(all.remove("com.dbappsecurity.cpsysportal:util"));
         include.addAll(all.remove("org.projectlombok:lombok"));
         include.addAll(all.remove("org.apache.logging.log4j:log4j-api"));
         Collection<Set<String>> exclude = all.values();
