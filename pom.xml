@@ -16,7 +16,7 @@
     </modules>
     <properties>
         <flink-version>1.9.0</flink-version>
-        <jackson-version>2.10.0</jackson-version>
+        <jackson-version>2.13.4</jackson-version>
         <es.version>6.5.1</es.version>
         <hbase.version>1.4.10</hbase.version>
     </properties>
